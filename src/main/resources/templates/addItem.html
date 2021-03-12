@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
+    <!--Required meta tags -->
+    <metacharset="utf-8">
+    <metaname="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap CSS -->
+    <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
 </head>
 <body>
+    <div class="container">
+        <form>
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Category</label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <option selected>Choose...</option>
+                <option value="ROAD_BIKE">ROAD_BIKE</option>
+                <option value="MOUNTAIN_BIKE">MOUNTAIN_BIKE</option>
+                <option value="CYCLOCROSS">CYCLOCROSS</option>
+                <option value="CHILDRENS_BIKE">CHILDRENS_BIKE</option>
+                <option value="ELECTRIC_BIKE">ELECTRIC_BIKE</option>
+            </select>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Description</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Build year</label>
+                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Build year">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Price</label>
+                <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Price">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Image URL</label>
+                <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Image URL">
+            </div>
+        </form>
+    </div>
 
 </body>
 </html>
