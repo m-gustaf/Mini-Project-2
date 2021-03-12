@@ -20,4 +20,14 @@ public class ItemRepository {
     public List<Item> getList() {
         return items;
     }
+
+    public List<Item> search(String keyword) {
+        List<Item> result = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getDescription().contains(keyword) || item.getCategory().contains(keyword)) {
+                result.add(item);
+            }
+        }
+        return result;
+    }
 }
