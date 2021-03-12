@@ -1,8 +1,5 @@
 package com.blocketlight.BlocketLight;
 
-public class Item {
-
+public class ItemRepository {
 
 }
-
-
