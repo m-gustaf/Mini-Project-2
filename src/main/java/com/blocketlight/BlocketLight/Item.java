@@ -2,13 +2,13 @@ package com.blocketlight.BlocketLight;
 
 public class Item {
     private int id;
-    private String category;
+    private Category category;
     private String description;
     private int buildYear;
     private double price;
     private boolean isAvailable;
 
-    public Item(int id, String category, String description, int buildYear, double price, boolean isAvailable) {
+    public Item(int id, Category category, String description, int buildYear, double price, boolean isAvailable) {
         this.id = id;
         this.category = category;
         this.description = description;
@@ -25,11 +25,11 @@ public class Item {
         this.id = id;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
