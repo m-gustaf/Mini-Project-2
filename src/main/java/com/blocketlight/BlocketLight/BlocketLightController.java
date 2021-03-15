@@ -1,6 +1,7 @@
 package com.blocketlight.BlocketLight;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Controller
-
+@EnableAutoConfiguration
 public class BlocketLightController {
 
 
@@ -49,20 +50,20 @@ public class BlocketLightController {
     }
 
     @PostMapping("/save")
-    public String set(Model model) {
+    public String set() {
 
         return "redirect:/";
     }
 
     @GetMapping("/login")
-    public String login(Model model) {
+    public String login() {
 
 
         return "login";
 
     }
     @GetMapping("/register")
-    public String register(Model model) {
+    public String register() {
 
 
         return "register";
@@ -70,7 +71,7 @@ public class BlocketLightController {
     }
 
     @GetMapping("/forgot")
-    public String forgot(Model model) {
+    public String forgot() {
 
 
         return "forgot";

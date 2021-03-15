@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Item</title>
     <link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
     <!--Required meta tags -->
-    <metacharset="utf-8">
-    <metaname="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Bootstrap CSS -->
     <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
 </head>
@@ -45,16 +45,15 @@
             </div>
         </nav>
 
+        <h1 class="display-1">Add Item</h1>
+
         <form>
             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Category</label>
             <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                 <option selected>Choose...</option>
-                <option value="ROAD_BIKE">ROAD_BIKE</option>
-                <option value="MOUNTAIN_BIKE">MOUNTAIN_BIKE</option>
-                <option value="CYCLOCROSS">CYCLOCROSS</option>
-                <option value="CHILDRENS_BIKE">CHILDRENS_BIKE</option>
-                <option value="ELECTRIC_BIKE">ELECTRIC_BIKE</option>
-            </select>
+                <option th:each="category : ${T(com.blocketlight.BlocketLight.Category).values()}"
+                        th:value="${category}" th:text="${category.displayValue}"></option>
+                </select>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Description</label>
                 <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Description">
@@ -71,14 +70,15 @@
                 <label for="formGroupExampleInput2">Image URL</label>
                 <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Image URL">
             </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
 
         <footer class="footer mt-auto py-3 bg-light">
             <div class="container">
-                <span class="text-muted">Copyright © 2021 Blocket Light. All Rights Reserved.</span>
+                <span class="text-muted"><p class="text-center">Copyright © 2021 Blocket Light. All Rights Reserved.</p></span>
             </div>
         </footer>
-    </div>
 
 </body>
 </html>
