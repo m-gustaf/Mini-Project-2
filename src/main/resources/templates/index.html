@@ -16,7 +16,7 @@
 <div class="container">
 
     <!--Page navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
     <a class="navbar-brand" href="/"><img src="http://www.iderbrandt.com/icon-bl.svg" alt="" width="40" height="34"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -30,16 +30,20 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="addItem.html">Add Item</a>
+                <a class="nav-link" href="listItems">List Items</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="addItem">Add Item</a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login">Login</a>
+            </li>
         </ul>
-        <form class="d-flex">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+        <form>
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
         </form>
     </div>
 </nav>
@@ -51,7 +55,7 @@
         <hr class="my-4">
         <p>and this text can also change...</p>
 
-        <a class="btn btn-primary btn-lg" href="searchResult.html" role="button">Go to the items!</a>
+        <!-- <a class="btn btn-primary btn-lg" href="searchResult.html" role="button">Go to the items!</a> -->
     </div>
 
     <!--Table with items-->
@@ -73,6 +77,48 @@
         </tr>
        </tbody>
     </table>
+
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">

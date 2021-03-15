@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:max-width="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Detail Page</title>
-<link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
-
-<!--Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!--Bootstrap CSS -->
-<link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
+    <!--Required meta tags -->
+    <metacharset="utf-8">
+    <metaname="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap CSS -->
+    <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
 </head>
-
 <body>
     <div class="container">
-
         <!--Page navigation-->
         <nav class="navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="/"><img src="http://www.iderbrandt.com/icon-bl.svg" alt="" width="40" height="34"></a>
@@ -49,27 +45,26 @@
             </div>
         </nav>
 
-        <!-- Card -->
+        <!--Table with items-->
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Build Year</th>
+                <th scope="col">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="item : ${items}">
+                <td><p th:text="${item.category}" /></td>
+                <td><p th:text="${item.description}" /></td>
+                <td><p th:text="${item.buildYear}" /></td>
+                <td><p th:text="${item.price}" /></td>
+            </tr>
+            </tbody>
+        </table>
 
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-            <img class="card-img-top" th:src="${item.imageURL}" alt="Card image cap">
-                </div>
-                <div class="col-md-8">
-                <div class="card-body">
-                <h5 class="card-title" th:text="${item.description}"></h5>
-                <p class="card-text" th:text="${item.category}"></p>
-                <p class="card-text" th:text="${item.buildYear}"></p>
-                <p class="card-text" th:text="${item.price}"></p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Footer -->
         <footer class="footer mt-auto py-3 bg-light">
             <div class="container">
                 <span class="text-muted">Copyright © 2021 Blocket Light. All Rights Reserved.</span>
