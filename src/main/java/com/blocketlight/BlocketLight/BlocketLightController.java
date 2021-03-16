@@ -62,17 +62,10 @@ public class BlocketLightController {
         return "login";
 
     }
-    @GetMapping("/register")
-    public String register() {
 
-
-        return "register";
-
-    }
 
     @GetMapping("/forgot")
     public String forgot() {
-
 
         return "forgot";
 
