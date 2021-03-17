@@ -39,8 +39,7 @@ public class ItemRepository {
     }
 
     public void deleteItem (int id) {
-        Item itemToRemove = getItem(id);
-        items.remove(itemToRemove);
+        items.remove(getItem(id));
     }
 
     public List<Item> search(String keyword) {
