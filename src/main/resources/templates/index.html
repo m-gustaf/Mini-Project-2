@@ -122,7 +122,7 @@
             <td><a th:href="'/' + ${item.id}" p th:text="${item.category}" /></td>
             <td><a th:href="'/' + ${item.id}" p th:text="${item.description}" /></td>
             <td><a th:href="'/' + ${item.id}" p th:text="${item.buildYear}" /></td>
-            <td><a th:href="'/' + ${item.id}" p th:text="${item.price}" /></td>
+            <td><a th:href="'/' + ${item.id}" p th:text="${item.price} + ' kr'" /></td>
         </tr>
         </tbody>
     </table>
