@@ -41,7 +41,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="login">Login</a>
                 </li>
-
+                <form action = "/searchItems" method = "post"class="form-inline ml-auto">
+                    <div class="md-form my-0">
+                        <input class="form-control" type="text" name = "keyword" id = "keyword" placeholder="Search" aria-label="Search">
+                    </div>
+                    <button href="'/searchItems'" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">Search</button>
+                </form>
             </ul>
         </div>
     </div>
@@ -63,7 +68,7 @@
 <!-- Page Content -->
 <div class="container">
 
-    <table class="table table-hover">
+    <table th:if="${items != null}" class="table table-hover">
         <thead>
         <tr>
             <th scope="col">Category</th>
@@ -73,11 +78,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr a th:href="'/${item.id}' + ${item.description}" th:each="item : ${items}">
-            <td><p th:text="${item.category}" /></td>
-            <td><p th:text="${item.description}" /></td>
-            <td><p th:text="${item.buildYear}" /></td>
-            <td><p th:text="${item.price}" /></td>
+        <tr th:each="item : ${items}">
+            <td><a th:href="'/' + ${item.id}" p th:text="${item.category}" /></td>
+            <td><a th:href="'/' + ${item.id}" p th:text="${item.description}" /></td>
+            <td><a th:href="'/' + ${item.id}" p th:text="${item.buildYear}" /></td>
+            <td><a th:href="'/' + ${item.id}" p th:text="${item.price}" /></td>
         </tr>
         </tbody>
     </table>

@@ -49,6 +49,12 @@ public class ItemRepository {
                 result.add(item);
             }
         }
-        return result;
+
+        if(result.size() > 0){
+          return result;
+        }
+        else{
+            return null;
+        }
     }
 }

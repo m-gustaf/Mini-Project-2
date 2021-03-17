@@ -41,6 +41,14 @@ public class BlocketLightController {
         return "listItems";
     }
 
+    @PostMapping("/searchItems")
+    public String searchItems(Model model,@RequestParam String keyword) {
+        List<Item> list = itemRepository.search(keyword);
+        model.addAttribute("items", list);
+
+        return "listItems";
+    }
+
     @GetMapping("/addItem")
     public String addItems(Model model) {
         List<Item> list = itemRepository.getList();
