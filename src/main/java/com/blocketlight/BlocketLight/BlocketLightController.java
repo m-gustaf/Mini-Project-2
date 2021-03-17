@@ -45,7 +45,7 @@ public class BlocketLightController {
     public String addItems(Model model) {
         List<Item> list = itemRepository.getList();
         model.addAttribute("items", list);
-        Item item = new Item(0,null,null,0,0,true,null);
+        Item item = new Item(0,null,null,1900,0,true,null);
         model.addAttribute("item",item);
         return "addItem";
     }
