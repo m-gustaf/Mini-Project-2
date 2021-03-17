@@ -61,6 +61,11 @@
             </ul>
         </div>
     </div>
+    <form action = "/searchItems" method = "post"class="form-inline ml-auto">
+        <div class="md-form my-0">
+            <input class="form-control" href="'/searchItems'" type="text" name = "keyword" id = "keyword" placeholder="Search" aria-label="Search">
+        </div>
+    </form>
 </nav>
 
 <!-- Header
@@ -79,16 +84,16 @@
 <!-- Page Content -->
 <div class="container">
 
-    <!-- Portfolio Item Heading -->
+    <!-- Detail page Item Heading -->
     <h1 class="my-4" th:text="${item.description}">
 
     </h1>
 
-    <!-- Portfolio Item Row -->
+    <!-- Detail Page Item Row -->
     <div class="row">
 
         <div class="col-md-8">
-            <img class="img-fluid" th:src="${item.imageURL}" alt="">
+            <img class="img-fluid" th:src="${item.imageURL}"  alt="Detailed Page Image">
         </div>
 
         <div class="col-md-4">
