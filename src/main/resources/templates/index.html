@@ -37,10 +37,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="listItems">List Items</a>
+                    <a class="nav-link" href="listItems">All Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addItem">Add Item</a>
+                    <a class="nav-link" href="addItem">Add</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login">Login</a>
@@ -69,20 +69,16 @@
                         <h4 class="card-title">Welcome to Blocket Light</h4>
 
                         <p class="card-text">Search for your new bike!</p>
-                        <p class="card-text"></p>
-                        <p class="card-text"></p>
+                        <br><br>
                         <form action = "/searchItems" method = "post"class="form-inline ml-auto">
                             <div class="md-form my-0">
                                 <input class="form-control" href="'/searchItems'" type="text" name = "keyword" id = "keyword" placeholder="Search" aria-label="Search">
                             </div>
                         </form>
                         <p></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
-               <!-- <h1 class="display-3 text-primary mt-5 mb-2">Mini Project - Blocket Light</h1>
-                <p class="lead mb-5 text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste ipsa cumque unde nisi, totam quas ipsam.</p>-->
-            </div>
+              </div>
         </div>
     </div>
 </header>
@@ -137,7 +133,7 @@
         </thead>
         <tbody>
         <tr  th:each="item : ${items}">
-            <td><a th:href="'/' + ${item.id}" p th:text="${item.category}" /></td>
+            <td><a th:href="'/' + ${item.id}" p th:text="${item.category.displayValue}" /></td>
             <td><a th:href="'/' + ${item.id}" p th:text="${item.description}" /></td>
             <td><a th:href="'/' + ${item.id}" p th:text="${item.buildYear}" /></td>
             <td><a th:href="'/' + ${item.id}" p th:text="${item.price} + ' kr'" /></td>

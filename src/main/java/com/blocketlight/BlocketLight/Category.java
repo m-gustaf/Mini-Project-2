@@ -1,6 +1,7 @@
 package com.blocketlight.BlocketLight;
 
 public enum Category {
+    CHOOSE("Choose..."),
     ROAD_BIKE("Road Bike"),
     MOUNTAIN_BIKE("Mountain Bike"),
     CYCLOCROSS("Cyclocross"),
