@@ -9,6 +9,10 @@ public class Item {
     private boolean isAvailable;
     private String imageURL;
 
+    public Item(){
+
+    }
+
     public Item(int id, Category category, String description, int buildYear, double price, boolean isAvailable, String imageURL) {
         this.id = id;
         this.category = category;
@@ -17,7 +21,14 @@ public class Item {
         this.price = price;
         this.isAvailable = isAvailable;
         this.imageURL = imageURL;
+    }
 
+    public Item(Category category, String description, int buildYear, double price, String imageURL) {
+        this.category = category;
+        this.description = description;
+        this.buildYear = buildYear;
+        this.price = price;
+        this.imageURL = imageURL;
     }
 
     public String getImageURL() {

@@ -33,6 +33,8 @@ public class ItemRepository {
     }
 
     public void addItem(Item item) {
+        item.setId(items.size());
+        item.setIsAvailable(true);
         items.add(item);
     }
 

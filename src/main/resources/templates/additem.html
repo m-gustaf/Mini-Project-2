@@ -62,28 +62,27 @@
 <!-- Page Content -->
 <div class="container">
 
-    <form>
+    <form action="/addItem" th:object="${item}" method="POST">
         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Category</label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-            <option selected>Choose...</option>
+        <select class="custom-select my-1 mr-sm-2" th:field="*{category}" id="inlineFormCustomSelectPref">
             <option th:each="category : ${T(com.blocketlight.BlocketLight.Category).values()}"
-                    th:value="${category}" th:text="${category.displayValue}"></option>
+                    th:value="${category}" th:text="${category.displayValue}" ></option>
         </select>
         <div class="form-group">
             <label for="formGroupExampleInput2">Description</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Description">
+            <input type="text" class="form-control" th:field="*{description}" id="formGroupExampleInput2" placeholder="Description" >
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">Build year</label>
-            <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Build year">
+            <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Build year" th:field="*{buildYear}">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">Price</label>
-            <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Price">
+            <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Price" th:field="*{price}">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">Image URL</label>
-            <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Image URL">
+            <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Image URL" th:field="*{imageURL}">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

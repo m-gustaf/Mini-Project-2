@@ -45,14 +45,16 @@ public class BlocketLightController {
     public String addItems(Model model) {
         List<Item> list = itemRepository.getList();
         model.addAttribute("items", list);
-
+        Item item = new Item(0,null,null,0,0,true,null);
+        model.addAttribute("item",item);
         return "addItem";
     }
 
-    @PostMapping("/save")
-    public String set() {
+    @PostMapping("/addItem")
+    public String set(@ModelAttribute Item item) {
+        itemRepository.addItem(item);
 
-        return "redirect:/";
+        return "redirect:/listItems";
     }
 
     @GetMapping("/login")
