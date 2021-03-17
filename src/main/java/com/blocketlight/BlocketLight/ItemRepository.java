@@ -38,6 +38,11 @@ public class ItemRepository {
         items.add(item);
     }
 
+    public void deleteItem (int id) {
+        Item itemToRemove = getItem(id);
+        items.remove(itemToRemove);
+    }
+
     public List<Item> search(String keyword) {
         List<Item> result = new ArrayList<>();
         for (Item item : items) {

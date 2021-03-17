@@ -50,6 +50,14 @@ public class BlocketLightController {
         return "addItem";
     }
 
+    @GetMapping("/delete/{id}")
+    public  String delete(Model model,@PathVariable int id) {
+        model.addAttribute("id",id);
+        itemRepository.deleteItem(id);
+
+        return "redirect:/listItems";
+    }
+
     @PostMapping("/addItem")
     public String set(@ModelAttribute Item item) {
         itemRepository.addItem(item);
