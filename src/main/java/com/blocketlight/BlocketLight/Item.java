@@ -1,11 +1,11 @@
 package com.blocketlight.BlocketLight;
 
 public class Item {
-    private int id;
+    private Integer id;
     private Category category;
     private String description;
-    private int buildYear;
-    private double price;
+    private Integer buildYear;
+    private Integer price;
     private boolean isAvailable;
     private String imageURL;
 
@@ -13,7 +13,7 @@ public class Item {
 
     }
 
-    public Item(int id, Category category, String description, int buildYear, double price, boolean isAvailable, String imageURL) {
+    public Item(Integer id, Category category, String description, Integer buildYear, Integer price, boolean isAvailable, String imageURL) {
         this.id = id;
         this.category = category;
         this.description = description;
@@ -23,7 +23,7 @@ public class Item {
         this.imageURL = imageURL;
     }
 
-    public Item(Category category, String description, int buildYear, double price, String imageURL) {
+    public Item(Category category, String description, Integer buildYear, Integer price, String imageURL) {
         this.category = category;
         this.description = description;
         this.buildYear = buildYear;
@@ -39,11 +39,11 @@ public class Item {
         this.imageURL = imageURL;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -63,19 +63,19 @@ public class Item {
         this.description = description;
     }
 
-    public int getBuildYear() {
+    public Integer getBuildYear() {
         return buildYear;
     }
 
-    public void setBuildYear(int buildYear) {
+    public void setBuildYear(Integer buildYear) {
         this.buildYear = buildYear;
     }
 
-    public double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

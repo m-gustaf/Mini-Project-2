@@ -27,7 +27,7 @@ public class BlocketLightController {
     }
 
     @GetMapping("/{id}")
-    public String detailPage(Model model, @PathVariable int id) {
+    public String detailPage(Model model, @PathVariable Integer id) {
         Item item = itemRepository.getItem(id);
         model.addAttribute("item", item);
         return "detailPage";
@@ -53,13 +53,13 @@ public class BlocketLightController {
     public String addItems(Model model) {
         List<Item> list = itemRepository.getList();
         model.addAttribute("items", list);
-        Item item = new Item(0,null,null,1900,0,true,null);
+        Item item = new Item(null,null,null,null,null,true,null);
         model.addAttribute("item",item);
         return "addItem";
     }
 
     @GetMapping("/delete/{id}")
-    public  String delete(Model model,@PathVariable int id) {
+    public  String delete(Model model,@PathVariable Integer id) {
         model.addAttribute("id",id);
         itemRepository.deleteItem(id);
 
