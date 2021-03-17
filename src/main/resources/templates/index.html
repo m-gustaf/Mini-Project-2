@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:background-image="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="UTF-8">
 
@@ -58,12 +58,30 @@
 </nav>
 
 <!-- Header -->
-<header class="bg-primary py-5 mb-5">
+<header class="bg-primary py-5 mb-5 bg-image" style="background-image: url('https://images.ctfassets.net/bi9pvs2ayg6b/1ISzzS00xYS4SGAPWnvn3i/90bf315283b013927508636bb6e6c0c9/blocket_stolkop_tablet.jpg'); height: 45vh">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
-            <div class="col-lg-12">
-                <h1 class="display-4 text-white mt-5 mb-2">Mini Project - Blocket Light</h1>
-                <p class="lead mb-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste ipsa cumque unde nisi, totam quas ipsam.</p>
+            <div class="col-sm-12">
+
+                <div class="card" style="width: 21rem;">
+
+                    <div class="card-body">
+                        <h4 class="card-title">Welcome to Blocket Light</h4>
+
+                        <p class="card-text">Search for your new bike!</p>
+                        <p class="card-text"></p>
+                        <p class="card-text"></p>
+                        <form action = "/searchItems" method = "post"class="form-inline ml-auto">
+                            <div class="md-form my-0">
+                                <input class="form-control" href="'/searchItems'" type="text" name = "keyword" id = "keyword" placeholder="Search" aria-label="Search">
+                            </div>
+                        </form>
+                        <p></p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+               <!-- <h1 class="display-3 text-primary mt-5 mb-2">Mini Project - Blocket Light</h1>
+                <p class="lead mb-5 text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste ipsa cumque unde nisi, totam quas ipsam.</p>-->
             </div>
         </div>
     </div>
@@ -101,7 +119,7 @@
                 +46 33 123 456 789
                 <br>
                 <abbr title="Email">E:</abbr>
-                <a href="mailto:#">team1@miniproject2blocketlight.com</a>
+                <a href="mailto:#">team1@blocketlight.com</a>
             </address>
         </div>
     </div>
@@ -130,37 +148,37 @@
     <div class="row">
         <div class="col-md-4 mb-5">
             <div class="card h-100">
-                <img class="card-img-top" src="https://placehold.it/300x200" alt="">
+                <img class="card-img-top" src="https:/images.ctfassets.net/bi9pvs2ayg6b/4DarfrlijS0a4gwi6SIq0a/015e20d2b4430b42aeb6466a23db8042/shutterstock_1017335230.jpg?w=300" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+                    <h4 class="card-title">Are you considering buying an electric bike?</h4>
+                    <p class="card-text">Wondering how an electric bike works? What about the electric bike prize? Here we explain the concepts and technology and give tips on what to think about when you buy an electric bike.</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                    <a href="https://www.blocket.se/tips-och-guider/cykelguiden/kopa-elcykel" class="btn btn-primary">Find Out More!</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-5">
             <div class="card h-100">
-                <img class="card-img-top" src="https://placehold.it/300x200" alt="">
+                <img class="card-img-top div.embbed-responsive" src="https:/images.ctfassets.net/bi9pvs2ayg6b/51iZ5gsRPBIAEMtO49PNLE/743bb78ffd7081d1e307b66b526eaf55/cykling_puff.jpg?w=300" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
+                    <h4 class="card-title">What does a bike cost?</h4>
+                    <p class="card-text">What is a good price for a used bike? Whether you are selling or buying, it is good to get an idea of what is a low or high price.</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                    <a href="https://www.blocket.se/tips-och-guider/cykelguiden/vad-kostar-en-cykel" class="btn btn-primary">Find Out More!</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mb-5">
             <div class="card h-100">
-                <img class="card-img-top" src="https://placehold.it/300x200" alt="">
+                <img class="card-img-top img-float" src="https:/images.ctfassets.net/bi9pvs2ayg6b/53TAvMglUkMEGYceaEiC2e/f1bbb7fc053f3979647429a11b0c1ec8/tryggt_cykelkop.jpg?w=200" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    <h4 class="card-title">Make a safe bike purchase</h4>
+                    <p class="card-text">Unfortunately, many bicycles are stolen and resold. Help us keep bike thieves away from Blocket and avoid buying a stolen bike with our simple tips..</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                    <a href="https://www.blocket.se/tips-och-guider/cykelguiden/tryggt-cykelkop" class="btn btn-primary">Find Out More!</a>
                 </div>
             </div>
         </div>
