@@ -45,7 +45,7 @@ public class BlocketLightController {
     public String searchItems(Model model,@RequestParam String keyword) {
         List<Item> list = itemRepository.search(keyword);
         model.addAttribute("items", list);
-
+        model.addAttribute("keyword",keyword);
         return "listItems";
     }
 
