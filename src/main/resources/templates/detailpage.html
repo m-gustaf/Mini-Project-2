@@ -107,6 +107,7 @@
             <h3 class="my-3">Price</h3>
             <p class="card-text" th:text="${item.price} + ' kr'"></p>
             <a th:href="'/delete/' + ${item.id}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete</a>
+            <a th:href="'/' + ${item.id}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
             <p> </p>
         </div>
     </div>
