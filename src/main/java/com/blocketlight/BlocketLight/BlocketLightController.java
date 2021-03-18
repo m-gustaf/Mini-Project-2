@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -58,7 +60,7 @@ public class BlocketLightController {
     }
 
     @GetMapping("/listItems")
-    public String listItems(Model model) {
+    public String listItems(Model model, HttpSession session) {
         List<Item> list = itemRepository.getList();
         model.addAttribute("items", list);
 
@@ -120,5 +122,15 @@ public class BlocketLightController {
     public String forgot() {
 
         return "forgot";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session, HttpServletResponse res){
+        session.removeAttribute("username");
+        session.removeAttribute("isLoggedIn");
+        Cookie cookie = new Cookie("JSESSIONID", "");
+        cookie.setMaxAge(0);
+        res.addCookie(cookie);
+        return "redirect:/";
     }
 }
