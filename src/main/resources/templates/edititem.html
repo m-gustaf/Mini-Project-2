@@ -1,25 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:max-width="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="UTF-8">
-<title>Detail Page - Blocket Light</title>
-<link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
-
-<!--Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!--Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body>
-
-<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detail Page - Blocket Light</title>
+    <title>Edit Item - Blocket Light</title>
 
     <!--Required meta tags -->
     <meta charset="utf-8">
@@ -52,12 +35,11 @@
                     <a class="nav-link" href="listItems">All Bikes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addItem">Add Bike</a>
+                    <a class="nav-link" href="addItem">Add Bikes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login">Login</a>
                 </li>
-
             </ul>
         </div>
         <form action = "/searchItems" method = "post"class="form-inline ml-auto">
@@ -70,13 +52,13 @@
 </nav>
 
 <!-- Header -->
-<header class="bg-primary py-5 mb-5bg-image" style="background-image: url('http://www.iderbrandt.com/bild3.jpg'); height: 35vh">
+<header class="bg-primary py-5 mb-5bg-image" style="background-image: url('http://www.iderbrandt.com/bild2.jpg'); height: 35vh">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-lg-12">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h1 class="display-4 text-primary">Bike Details</h1>
+                        <h1 class="display-4 text-primary">Edit Bike</h1>
                     </div>
                 </div>
             </div>
@@ -84,38 +66,44 @@
     </div>
 </header>
 
+
 <!-- Page Content -->
-<div class="container">
-<a href="listItems">Back to Item list</a>
-    <!-- Detail page Item Heading -->
-    <h1 class="my-4" th:text="${item.description}"></h1>
 
-    <!-- Detail Page Item Row -->
-    <div class="row">
+<div th:if="!${session.isLoggedIn}" class="container"><h1 class="display-6">Please login to edit bike</h1></div>
 
-        <div class="col-md-8">
-            <img class="img-fluid shadow" th:src="${item.imageURL}"  alt="Detailed Page Image">
+<div th:if="${session.isLoggedIn}" class="container">
+
+
+    <form th:action="@{/editItem(id=${item.id})}" th:object="${item}" method="POST">
+        <div class="form-group">
+        <label class="my-1 mr-2 col-sm-2 col-form-label col-form-label-lg" for="inlineFormCustomSelectPref">Category</label>
+        <select class="custom-select my-1 mr-sm-2" th:field="*{category}" id="inlineFormCustomSelectPref" placeholder="Choose...">
+
+            <option th:each="category : ${T(com.blocketlight.BlocketLight.Category).values()}"
+                    th:value="${category}" th:text="${category.displayValue}" ></option>
+        </select>
         </div>
-
-        <div class="col-md-4">
-            <h3 class="my-3">Description</h3>
-            <p class="card-text" th:text="${item.description}"></p>
-            <h3 class="my-3">Category</h3>
-            <p class="card-text" th:text="${item.category.displayValue}"></p>
-            <h3 class="my-3">Build Year</h3>
-            <p class="card-text" th:text="${item.buildYear}"></p>
-            <h3 class="my-3">Price</h3>
-            <p class="card-text" th:text="${item.price} + ' kr'"></p>
-            <a th:href="'/delete/' + ${item.id}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete</a>
-            <a th:href="'/editItem/' + ${item.id}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
-            <p> </p>
+        <div class="form-group">
+            <label for="formGroupExampleInput2" class="col-sm-2 col-form-label col-form-label-lg">Description</label>
+            <input type="text" class="form-control" th:field="*{description}" id="formGroupExampleInput2" placeholder="Description" >
         </div>
-    </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2" class="col-sm-2 col-form-label col-form-label-lg">Build year</label>
+            <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Build year" th:field="*{buildYear}">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2" class="col-sm-2 col-form-label col-form-label-lg">Price</label>
+            <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Price" th:field="*{price}">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2" class="col-sm-2 col-form-label col-form-label-lg">Image URL</label>
+            <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Image URL" th:field="*{imageURL}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
-
-    <!-- /.row -->
-
-
+<!-- /.container -->
+<p> </p>
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">
@@ -123,6 +111,8 @@
     </div>
     <!-- /.container -->
 </footer>
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
