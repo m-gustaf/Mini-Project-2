@@ -17,6 +17,7 @@ public class ItemRepository {
         items.add(new Item(3, Category.CYCLOCROSS, "Canyon Inflite CF SL", 2021, 34900, true,"https://media-cdn.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dw7abae634/images/full/full_2021_/2021/full_2021_inflite-cf-sl-7_mc_2656_P5.png"));
         items.add(new Item(4, Category.CHILDRENS_BIKE, "Frog 40 Kids Pedal", 2021, 2990, true,"https://www.billybilslandcycles.co.uk/images/frog-40-red.png"));
         items.add(new Item(5, Category.ELECTRIC_BIKE, "Crescent Electric", 2021, 19990, true,"https://www.elcykelpunkten.se/wp-content/uploads/2020/02/YEC937__55-1-1080x722.jpg"));
+        items.add(new Item(6, Category.ROAD_BIKE, "Cannondale Supersix EVO", 2021, 69900, true,"https://www.henrikssonscykel.se/pub_images/large/C21_C11671M_SuperSix_EVO_Crb_BBQ_PD.png?timestamp=1601914342"));
     }
 
     public List<Item> getList() {
