@@ -39,6 +39,15 @@ public class ItemRepository {
         items.add(item);
     }
 
+    public void editItem(Item item) {
+        Item itemToUpdate = getItem(item.getId());
+        itemToUpdate.setPrice(item.getPrice());
+        itemToUpdate.setCategory(item.getCategory());
+        itemToUpdate.setDescription(item.getDescription());
+        itemToUpdate.setBuildYear(item.getBuildYear());
+        itemToUpdate.setImageURL(item.getImageURL());
+    }
+
     public void deleteItem (int id) {
         items.remove(getItem(id));
     }
