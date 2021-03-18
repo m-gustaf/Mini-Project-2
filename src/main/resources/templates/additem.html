@@ -68,7 +68,10 @@
 
 
 <!-- Page Content -->
-<div class="container">
+
+<div th:if="!${session.isLoggedIn}" class="container"><h1 class="display-6">Please login to add items</h1></div>
+
+<div th:if="${session.isLoggedIn}" class="container">
 
     <form action="/addItem" th:object="${item}" method="POST">
         <div class="form-group">

@@ -8,12 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 @EnableAutoConfiguration
 public class BlocketLightController {
-
 
     @Autowired
     ItemRepository itemRepository;
@@ -24,6 +24,19 @@ public class BlocketLightController {
         model.addAttribute("items", list);
 
         return "index";
+    }
+
+    @PostMapping("/login")
+    public String loginPost(HttpSession session, @RequestParam String username, @RequestParam String password){
+        boolean isLoggedIn = false;
+        if (username.equals("admin") && password.equals("123")) {
+            isLoggedIn = true;
+            session.setAttribute("username", username);
+            session.setAttribute("isLoggedIn", isLoggedIn);
+            System.out.println(isLoggedIn);
+            return "redirect:/";
+        }
+        return "login";
     }
 
     @GetMapping("/{id}")
@@ -50,11 +63,14 @@ public class BlocketLightController {
     }
 
     @GetMapping("/addItem")
-    public String addItems(Model model) {
+    public String addItems(Model model, HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        model.addAttribute("username", username);
+
         List<Item> list = itemRepository.getList();
         model.addAttribute("items", list);
-        Item item = new Item(null,null,null,null,null,true,null);
-        model.addAttribute("item",item);
+        Item item = new Item(null, null, null, null, null, true, null);
+        model.addAttribute("item", item);
         return "addItem";
     }
 
@@ -76,16 +92,12 @@ public class BlocketLightController {
     @GetMapping("/login")
     public String login() {
 
-
         return "login";
-
     }
-
 
     @GetMapping("/forgot")
     public String forgot() {
 
         return "forgot";
-
     }
 }
