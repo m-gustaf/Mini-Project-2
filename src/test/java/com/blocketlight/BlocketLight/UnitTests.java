@@ -22,6 +22,6 @@ public class UnitTests {
     public void addTest(){
         ItemRepository items = new ItemRepository();
         items.addItem(new Item(Category.MOUNTAIN_BIKE,"Nice bike!",2020,19900,""));
-        Assert.assertEquals(6,items.getList().size());
+        Assert.assertEquals(7,items.getList().size());
     }
 }
