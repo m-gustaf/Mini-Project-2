@@ -12,10 +12,10 @@ public class ItemRepository {
 
     public ItemRepository() {
         items = new ArrayList<>();
-        items.add(new Item(1, Category.ROAD_BIKE, "Specialized Tarmac", 2021, 12990, true,"https://03.cdn37.se/p6/images/2.1914165/specialized-tarmac-sl6-2021.jpeg"));
-        items.add(new Item(2, Category.MOUNTAIN_BIKE, "Canyon MTB", 2021, 24990, true,"https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Library-Sites-canyon-shared/default/dw6fe9f70f/images/plp/Mountain/Spectral/27-5er-canyon-spectral-12.jpg?sw=1280&sh=650&sm=cut"));
-        items.add(new Item(3, Category.CYCLOCROSS, "Bianchi CX", 2021, 8990, true,"https://www.bianchi.com/wp-content/uploads/2020/09/YQB51IZD.jpg"));
-        items.add(new Item(4, Category.CHILDRENS_BIKE, "Monark Kids", 2021, 990, true,"https://www.cykellagret.se/productfiles/images/d/d7975e67-00b5-4b70-be2e-aecf091d4151_large.jpg?width=345"));
+        items.add(new Item(1, Category.ROAD_BIKE, "Specialized S-Works Tarmac SL7", 2021, 124900, true,"https://www.bike-components.de/cache/p/xl1/7/8/Specialized-S-Works-Tarmac-SL7-Di2-Disc-Carbon-Bicycle-Model-202-carbon-color-run-silver-green-58-cm-78822-364313-1607960513.jpeg"));
+        items.add(new Item(2, Category.MOUNTAIN_BIKE, "Canyon Spectral 29", 2021, 24990, true,"https://blisterreview.com/wp-content/uploads/2020/12/full_2021_spectral-cf-29-9-thumb.jpg"));
+        items.add(new Item(3, Category.CYCLOCROSS, "Canyon Inflite CF SL", 2021, 34900, true,"https://media-cdn.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dw7abae634/images/full/full_2021_/2021/full_2021_inflite-cf-sl-7_mc_2656_P5.png"));
+        items.add(new Item(4, Category.CHILDRENS_BIKE, "Frog 40 Kids Pedal", 2021, 2990, true,"https://www.billybilslandcycles.co.uk/images/frog-40-red.png"));
         items.add(new Item(5, Category.ELECTRIC_BIKE, "Crescent Electric", 2021, 19990, true,"https://www.elcykelpunkten.se/wp-content/uploads/2020/02/YEC937__55-1-1080x722.jpg"));
     }
 
