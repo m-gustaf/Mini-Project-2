@@ -33,7 +33,6 @@ public class BlocketLightController {
             isLoggedIn = true;
             session.setAttribute("username", username);
             session.setAttribute("isLoggedIn", isLoggedIn);
-            System.out.println(isLoggedIn);
             return "redirect:/";
         }
         return "login";
