@@ -20,6 +20,7 @@ public class BlocketLightController {
     @Autowired
     Repository repository;
 
+
     @GetMapping("/")
     public String loginGet(Model model) {
         List<Item> list =(List)repository.findAll();
@@ -27,6 +28,7 @@ public class BlocketLightController {
 
         return "index";
     }
+    /*
 
     @PostMapping("/login")
     public String loginPost(HttpSession session, @RequestParam String username, @RequestParam String password){
@@ -39,6 +41,8 @@ public class BlocketLightController {
         }
         return "login";
     }
+
+     */
 
     @GetMapping("/{id}")
     public String detailPage(Model model, @PathVariable Integer id) {
@@ -78,7 +82,6 @@ public class BlocketLightController {
         return "listItems";
     }
 
-
     @GetMapping("/addItem")
     public String addItems(Model model, HttpSession session) {
         String username = (String)session.getAttribute("username");
@@ -116,6 +119,7 @@ public class BlocketLightController {
         return "redirect:/listItems";
     }
 
+    /*
     @GetMapping("/login")
     public String login() {
 
@@ -137,4 +141,6 @@ public class BlocketLightController {
         res.addCookie(cookie);
         return "redirect:/";
     }
+
+     */
 }
