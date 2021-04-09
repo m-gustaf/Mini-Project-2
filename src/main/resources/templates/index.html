@@ -44,16 +44,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="addItem">Add Bike</a>
                 </li>
-                <li th:if="!${session.isLoggedIn}" class="nav-item">
+                <li th:if="${#httpServletRequest.remoteUser} == null" class="nav-item">
                     <a class="nav-link" href="login">Login</a>
                 </li>
-                <li th:if="${session.isLoggedIn}" class="nav-item">
-                    <a class="nav-link" href="logout">Logout</a>
+                <li th:if="${#httpServletRequest.remoteUser} != null" class="nav-item">
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="nav-link btn btn-link">Logout</button>
+                    </form>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <!-- Header -->
 <header class="bg-primary py-5 mb-5 bg-image" style="background-image: url('http://www.iderbrandt.com/bild5.jpg'); height: 45vh">

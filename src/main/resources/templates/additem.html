@@ -37,11 +37,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="addItem">Add Bikes</a>
                 </li>
-                <li th:if="!${session.isLoggedIn}" class="nav-item">
+                <li th:if="${#httpServletRequest.remoteUser} == null" class="nav-item">
                     <a class="nav-link" href="login">Login</a>
                 </li>
-                <li th:if="${session.isLoggedIn}" class="nav-item">
-                    <a class="nav-link" href="logout">Logout</a>
+                <li th:if="${#httpServletRequest.remoteUser} != null" class="nav-item">
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="nav-link btn btn-link">Logout</button>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -67,9 +69,9 @@
 
 <!-- Page Content -->
 
-<div th:if="!${session.isLoggedIn}" class="container"><h1 class="display-6">Please login to add bike</h1></div>
+<div th:if="${#httpServletRequest.remoteUser} == null" class="container"><h1 class="display-6">Please login to add bike</h1></div>
 
-<div th:if="${session.isLoggedIn}" class="container">
+<div th:if="${#httpServletRequest.remoteUser} != null" class="container">
 
     <form action="/addItem" th:object="${item}" method="POST">
         <div class="form-group">

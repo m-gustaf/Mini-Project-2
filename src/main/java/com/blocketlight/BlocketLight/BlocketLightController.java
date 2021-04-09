@@ -28,21 +28,6 @@ public class BlocketLightController {
 
         return "index";
     }
-    /*
-
-    @PostMapping("/login")
-    public String loginPost(HttpSession session, @RequestParam String username, @RequestParam String password){
-        boolean isLoggedIn = false;
-        if (username.equals("admin") && password.equals("123")) {
-            isLoggedIn = true;
-            session.setAttribute("username", username);
-            session.setAttribute("isLoggedIn", isLoggedIn);
-            return "redirect:/";
-        }
-        return "login";
-    }
-
-     */
 
     @GetMapping("/{id}")
     public String detailPage(Model model, @PathVariable Integer id) {
@@ -56,9 +41,6 @@ public class BlocketLightController {
 
     @GetMapping("/editItem/{id}")
     public String editItem(Model model, HttpSession session, @PathVariable Integer id){
-        if ((Boolean)session.getAttribute("isLoggedIn") == null || (Boolean)session.getAttribute("isLoggedIn") == false ){
-            return "login";
-        }
 
         Item item = repository.findById(id).orElse(null);
         model.addAttribute("item", item);
@@ -131,16 +113,6 @@ public class BlocketLightController {
 
         return "forgot";
     }
+*/
 
-    @GetMapping("/logout")
-    public String logout(HttpSession session, HttpServletResponse res){
-        session.removeAttribute("username");
-        session.removeAttribute("isLoggedIn");
-        Cookie cookie = new Cookie("JSESSIONID", "");
-        cookie.setMaxAge(0);
-        res.addCookie(cookie);
-        return "redirect:/";
-    }
-
-     */
 }
