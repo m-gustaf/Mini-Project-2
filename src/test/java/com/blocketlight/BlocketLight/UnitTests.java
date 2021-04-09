@@ -12,16 +12,16 @@ public class UnitTests {
     public void searchTest(){
         ItemRepository items = new ItemRepository();
         List<Item> testSearch = items.search("Magnus");
-        Assert.assertEquals(null,testSearch);
+        Assert.assertEquals(null, testSearch);
 
         testSearch = items.search("Crescent");
-        Assert.assertEquals(1,testSearch.size());
+        Assert.assertEquals(1, testSearch.size());
     }
 
     @Test
     public void addTest(){
         ItemRepository items = new ItemRepository();
         items.addItem(new Item(Category.MOUNTAIN_BIKE,"Nice bike!",2020,19900,""));
-        Assert.assertEquals(7,items.getList().size());
+        Assert.assertEquals(7, items.getList().size());
     }
 }

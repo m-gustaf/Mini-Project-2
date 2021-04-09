@@ -19,10 +19,12 @@ public class BlocketLightController {
 
     @Autowired
     ItemRepository itemRepository;
+    @Autowired
+    Repository repository;
 
     @GetMapping("/")
     public String loginGet(Model model) {
-        List<Item> list = itemRepository.getList();
+        List<Item> list =(List)repository.findAll();
         model.addAttribute("items", list);
 
         return "index";

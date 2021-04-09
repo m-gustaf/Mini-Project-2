@@ -1,12 +1,21 @@
 package com.blocketlight.BlocketLight;
 
+import javax.persistence.*;
+
+@Entity
 public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Enumerated(EnumType.STRING)
     private Category category;
     private String description;
+    @Column (name="BUILD_YEAR")
     private Integer buildYear;
     private Integer price;
+    @Column (name="IS_AVAILABLE")
     private boolean isAvailable;
+    @Column (name="IMAGE_URL")
     private String imageURL;
 
     public Item(){
