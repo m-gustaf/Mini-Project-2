@@ -18,8 +18,6 @@ import java.util.List;
 public class BlocketLightController {
 
     @Autowired
-    ItemRepository itemRepository;
-    @Autowired
     Repository repository;
 
     @GetMapping("/")
@@ -44,7 +42,10 @@ public class BlocketLightController {
 
     @GetMapping("/{id}")
     public String detailPage(Model model, @PathVariable Integer id) {
-        Item item = itemRepository.getItem(id);
+        Item item = repository.findById(id).orElse(null);
+        if (item == null) {
+            return "redirect:/";
+        }
         model.addAttribute("item", item);
         return "detailPage";
     }
@@ -55,7 +56,7 @@ public class BlocketLightController {
             return "login";
         }
 
-        Item item = itemRepository.getItem(id);
+        Item item = repository.findById(id).orElse(null);
         model.addAttribute("item", item);
         model.addAttribute("id", id);
         return "edititem";
@@ -63,7 +64,7 @@ public class BlocketLightController {
 
     @GetMapping("/listItems")
     public String listItems(Model model, HttpSession session) {
-        List<Item> list = itemRepository.getList();
+        List<Item> list =(List)repository.findAll();
         model.addAttribute("items", list);
 
         return "listItems";
@@ -71,7 +72,7 @@ public class BlocketLightController {
 
     @PostMapping("/searchItems")
     public String searchItems(Model model,@RequestParam String keyword) {
-        List<Item> list = itemRepository.search(keyword);
+        List<Item> list =(List)repository.findByKeyword(keyword);
         model.addAttribute("items", list);
         model.addAttribute("keyword",keyword);
         return "listItems";
@@ -83,7 +84,8 @@ public class BlocketLightController {
         String username = (String)session.getAttribute("username");
         model.addAttribute("username", username);
 
-        List<Item> list = itemRepository.getList();
+        List<Item> list =(List)repository.findAll();
+
         model.addAttribute("items", list);
         Item item = new Item(null, null, null, null, null, true, null);
         model.addAttribute("item", item);
@@ -93,14 +95,14 @@ public class BlocketLightController {
     @GetMapping("/delete/{id}")
     public  String delete(Model model,@PathVariable Integer id) {
         model.addAttribute("id",id);
-        itemRepository.deleteItem(id);
+        repository.deleteById(id);
 
         return "redirect:/listItems";
     }
 
     @PostMapping("/addItem")
     public String set(@ModelAttribute Item item) {
-        itemRepository.addItem(item);
+        repository.save(item);
 
         return "redirect:/listItems";
     }
@@ -109,7 +111,7 @@ public class BlocketLightController {
     public String edit(@ModelAttribute Item item, @RequestParam Integer id) {
         System.out.println("ItemID getID: " + item.getId());
         System.out.println("ItemID requestparam:" + id);
-        itemRepository.editItem(item);
+        repository.save(item);
 
         return "redirect:/listItems";
     }
