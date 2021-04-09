@@ -74,7 +74,7 @@ public class BlocketLightController {
         return "listItems";
     }
 
-    @PostMapping("/searchItems")
+    @GetMapping("/searchItems")
     public String searchItems(Model model,@RequestParam String keyword) {
         List<Item> list =(List)repository.findByKeyword(keyword);
         model.addAttribute("items", list);
@@ -119,13 +119,13 @@ public class BlocketLightController {
         return "redirect:/listItems";
     }
 
-    /*
     @GetMapping("/login")
     public String login() {
 
         return "login";
     }
 
+    /*
     @GetMapping("/forgot")
     public String forgot() {
 

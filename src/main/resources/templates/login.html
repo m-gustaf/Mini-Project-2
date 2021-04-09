@@ -70,7 +70,7 @@
 
     <!--Login-->
 
-    <form action="/login" method="post">
+    <form th:action="@{/login}" method="post">
         <div class="mb-3">
             <label for="username" class="form-label col-sm-2 col-form-label col-form-label-lg">Username</label>
             <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
