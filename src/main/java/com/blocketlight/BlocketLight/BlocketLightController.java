@@ -21,7 +21,6 @@ public class BlocketLightController {
     @Autowired
     Repository repository;
 
-
     @GetMapping("/")
     public String loginGet(Model model) {
         List<Item> list =(List)repository.findAll();
@@ -127,5 +126,4 @@ public class BlocketLightController {
         return "forgot";
     }
 */
-
 }

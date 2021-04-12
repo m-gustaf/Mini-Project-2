@@ -35,6 +35,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             manager.createUser(User.withDefaultPasswordEncoder().username("user").password("123").roles("USER").build());
             return manager;
         }
-
-    }
+}
 
