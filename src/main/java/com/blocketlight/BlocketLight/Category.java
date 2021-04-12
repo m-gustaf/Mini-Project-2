@@ -1,7 +1,7 @@
 package com.blocketlight.BlocketLight;
 
 public enum Category {
-    CHOOSE("Choose..."),
+    CHOOSE("Choose a category"),
     ROAD_BIKE("Road Bike"),
     MOUNTAIN_BIKE("Mountain Bike"),
     CYCLOCROSS("Cyclocross"),
@@ -17,4 +17,6 @@ public enum Category {
     public String getDisplayValue() {
         return displayValue;
     }
+
+
 }

@@ -18,6 +18,7 @@ public class Item {
     @Column (name="IMAGE_URL")
     private String imageURL;
 
+
     public Item(){
 
     }

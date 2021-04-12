@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.validation.BindingResult;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -86,7 +87,15 @@ public class BlocketLightController {
     }
 
     @PostMapping("/addItem")
-    public String set(@ModelAttribute Item item) {
+    public String set(@ModelAttribute Item item, BindingResult result) {
+        ItemValidator itemValidator = new ItemValidator();
+        if (itemValidator.supports(item.getClass())) {
+            itemValidator.validate(item, result);
+        }
+        if (result.hasErrors()) {
+            return "addItem";
+        }
+
         repository.save(item);
 
         return "redirect:/listItems";
