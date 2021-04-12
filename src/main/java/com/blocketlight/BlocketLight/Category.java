@@ -17,6 +17,4 @@ public enum Category {
     public String getDisplayValue() {
         return displayValue;
     }
-
-
 }

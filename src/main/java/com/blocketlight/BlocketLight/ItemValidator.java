@@ -32,5 +32,4 @@ public class ItemValidator implements Validator {
             e.rejectValue("imageURL", "imageURL.empty");
         }
     }
-
 }
