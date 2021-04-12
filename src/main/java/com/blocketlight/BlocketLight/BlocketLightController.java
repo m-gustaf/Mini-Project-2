@@ -74,7 +74,7 @@ public class BlocketLightController {
         model.addAttribute("items", list);
         Item item = new Item(null, null, null, null, null, true, null);
         model.addAttribute("item", item);
-        return "addItem";
+        return "additem";
     }
 
     @GetMapping("/delete/{id}")
@@ -94,8 +94,6 @@ public class BlocketLightController {
 
     @PostMapping("/editItem")
     public String edit(@ModelAttribute Item item, @RequestParam Integer id) {
-        System.out.println("ItemID getID: " + item.getId());
-        System.out.println("ItemID requestparam:" + id);
         repository.save(item);
 
         return "redirect:/listItems";

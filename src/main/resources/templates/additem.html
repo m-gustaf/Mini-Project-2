@@ -73,7 +73,7 @@
 
 <div th:if="${#httpServletRequest.remoteUser} != null" class="container">
 
-    <form action="/addItem" th:object="${item}" method="POST">
+    <form th:action="@{/addItem}" th:object="${item}" method="POST">
         <div class="form-group">
         <label class="my-1 mr-2 col-sm-2 col-form-label col-form-label-lg" for="inlineFormCustomSelectPref">Category</label>
         <select class="custom-select my-1 mr-sm-2" th:field="*{category}" id="inlineFormCustomSelectPref" placeholder="Choose...">
