@@ -81,7 +81,13 @@
         <div class="mb-3">
             <label for="InputPassword1" class="form-label col-sm-2 col-form-label col-form-label-lg">Password</label>
             <input type="password" name="password" class="form-control" id="InputPassword1">
+
         </div>
+
+        <div th:if="${param.error}">
+            <p style="color:red;">Invalid username or password.</p>
+        </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
