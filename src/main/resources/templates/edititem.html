@@ -73,11 +73,15 @@
 
 <div th:if="${#httpServletRequest.remoteUser} != null" class="container">
 
+    <p th:if="${errorMsg != null}" th:text="${errorMsg}"></p>
+
 
     <form th:action="@{/editItem(id=${item.id})}" th:object="${item}" method="POST">
         <div class="form-group">
         <label class="my-1 mr-2 col-sm-2 col-form-label col-form-label-lg" for="inlineFormCustomSelectPref">Category</label>
-        <select class="custom-select my-1 mr-sm-2" th:field="*{category}" id="inlineFormCustomSelectPref" placeholder="Choose...">
+
+            <p th:if="${#fields.hasErrors('category')}"></p>
+            <select class="custom-select my-1 mr-sm-2" th:field="*{category}" id="inlineFormCustomSelectPref" placeholder="Choose a category" th:errorclass="error">
 
             <option th:each="category : ${T(com.blocketlight.BlocketLight.Category).values()}"
                     th:value="${category}" th:text="${category.displayValue}" ></option>
@@ -85,19 +89,34 @@
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2" class="col-sm-2 col-form-label col-form-label-lg">Description</label>
-            <input type="text" class="form-control" th:field="*{description}" id="formGroupExampleInput2" placeholder="Description" >
+            <p th:if="${#fields.hasErrors('description')}" >
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Description can not be empty!" th:field="*{description}" th:errorclass="error" ></p>
+            <p th:if="!${#fields.hasErrors('description')}" >
+                <input type="text" class="form-control" id="formGroupExampleInput2a" placeholder="Description" th:field="*{description}" ></p>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2" class="col-sm-2 col-form-label col-form-label-lg">Build year</label>
-            <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Build year" th:field="*{buildYear}">
+            <p th:if="${#fields.hasErrors('buildYear')}" >
+                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Build year can not be empty!" th:field="*{buildYear}" th:errorclass="error" ></p>
+            <p th:if="!${#fields.hasErrors('buildYear')}" >
+                <input type="text" class="form-control" id="formGroupExampleInput3a" placeholder="Build year" th:field="*{buildYear}" ></p>
+
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2" class="col-sm-2 col-form-label col-form-label-lg">Price</label>
-            <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Price" th:field="*{price}">
+            <p th:if="${#fields.hasErrors('price')}" >
+                <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Price can not be empty!" th:field="*{price}" th:errorclass="error" ></p>
+            <p th:if="!${#fields.hasErrors('price')}" >
+                <input type="text" class="form-control" id="formGroupExampleInput4a" placeholder="Price" th:field="*{price}" ></p>
+
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2" class="col-sm-2 col-form-label col-form-label-lg">Image URL</label>
-            <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Image URL" th:field="*{imageURL}">
+            <p th:if="${#fields.hasErrors('imageURL')}" >
+                <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Image URL can not be empty!" th:field="*{imageURL}" th:errorclass="error" ></p>
+            <p th:if="!${#fields.hasErrors('imageURL')}" >
+                <input type="text" class="form-control" id="formGroupExampleInput5a" placeholder="Image URL" th:field="*{imageURL}" ></p>
+
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

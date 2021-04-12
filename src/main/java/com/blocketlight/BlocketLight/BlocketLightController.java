@@ -95,14 +95,20 @@ public class BlocketLightController {
         if (result.hasErrors()) {
             return "addItem";
         }
-
         repository.save(item);
 
         return "redirect:/listItems";
     }
 
     @PostMapping("/editItem")
-    public String edit(@ModelAttribute Item item, @RequestParam Integer id) {
+    public String edit(@ModelAttribute Item item, @RequestParam Integer id, BindingResult result) {
+        ItemValidator itemValidator = new ItemValidator();
+        if (itemValidator.supports(item.getClass())) {
+            itemValidator.validate(item, result);
+        }
+        if (result.hasErrors()) {
+            return "editItem";
+        }
         repository.save(item);
 
         return "redirect:/listItems";
