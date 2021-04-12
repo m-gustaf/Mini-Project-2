@@ -46,7 +46,7 @@ public class BlocketLightController {
         Item item = repository.findById(id).orElse(null);
         model.addAttribute("item", item);
         model.addAttribute("id", id);
-        return "edititem";
+        return "editItem";
     }
 
     @GetMapping("/listItems")
