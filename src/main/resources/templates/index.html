@@ -1,222 +1,118 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:background-image="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout.html}">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>BikeXange</title>
 
-<title>Blocket Light</title>
-	
-<!--Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-	<!--Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
-    <!-- Custom styles for this template -->
-
     <link rel="stylesheet" href="../static/css/style.css" th:href="'css/style.css'">
-    <!--jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">Blocket Light</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/listItems">All Bikes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/addItem">Add Bike</a>
-                </li>
-                <li th:if="${#httpServletRequest.remoteUser} == null" class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li th:if="${#httpServletRequest.remoteUser} != null" class="nav-item">
-                    <form th:action="@{/logout}" method="post">
-                        <button type="submit" class="nav-link btn btn-link">Logout</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-<!-- Header -->
-<header class="bg-primary py-5 mb-5 bg-image" style="background-image: url('http://www.iderbrandt.com/bild5.jpg'); height: 45vh">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-sm-12">
-
-                <div class="card" style="width: 21rem;">
-
-                    <div class="card-body">
-                        <h4 class="card-title">Welcome to Blocket Light</h4>
-
-                        <p class="card-text">Search for your new bike!</p>
-                        <br>
-                        <form action = "/searchItems" method = "get" class="form-inline ml-auto">
-                            <div class="md-form my-0">
-                                <input class="form-control" href="'/searchItems'" type="text" name = "keyword" id = "keyword" placeholder="Search" aria-label="Search">
-                            </div>
-                        </form>
-                        <p></p>
+<main layout:fragment="header">
+    <header class="bg-primary py-5 mb-5 bg-image"
+            style="background-image: url('https://www.iderbrandt.com/bild5.jpg'); height: 45vh">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-sm-12">
+                    <div class="card" style="width: 21rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Welcome to BikeXange</h4>
+                            <p class="card-text">Search for your new bike!</p>
+                            <br>
+                            <form action="/searchItems" method="get" class="form-inline ml-auto">
+                                <div class="md-form my-0">
+                                    <input class="form-control" href="'/searchItems'" type="text" name="keyword"
+                                           id="keyword" placeholder="Search" aria-label="Search">
+                                </div>
+                            </form>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
-              </div>
-        </div>
-    </div>
-</header>
-
-<!-- Page Content -->
-<div class="container">
-
-    <!--<div class="row">
-        <div class="col-md-8 mb-5">
-            <h2>About Us</h2>
-            <hr>
-          <h4>Project members:</h4>
-          <ul>
-            <li>Jill Nyhlen</li>
-            <li>Thomas Forsberg</li>
-            <li>Magnus Gustafsson</li>
-            <li>Tobias Iderbrandt</li>
-            <li>Erik Stannemark </li>
-          </ul>
-          
-
-        </div>
-        <div class="col-md-4 mb-5">
-            <h2>Contact Us</h2>
-            <hr>
-            <address>
-                <strong>Mini Project 2 - Blocket Light</strong>
-                <br>Hultagatan 47
-                <br>510 50  Borås
-                <br>
-            </address>
-            <address>
-                <abbr title="Phone">P:</abbr>
-                +46 33 123 456 789
-                <br>
-                <abbr title="Email">E:</abbr>
-                <a href="mailto:#">team1@blocketlight.com</a>
-            </address>
-        </div>
-    </div>-->
-    <!-- /.row -->
-
-    <!--Table with items-->
-    <input class="form-control" id="myInput" type="text" placeholder="Filter..">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th scope="col">Category</th>
-            <th scope="col">Description</th>
-            <th scope="col">Build Year</th>
-            <th scope="col">Price</th>
-        </tr>
-        </thead>
-        <tbody id="myTable">
-        <tr  th:each="item : ${items}">
-            <td><a th:href="'/' + ${item.id}" p th:text="${item.category.displayValue}" /></td>
-            <td><a th:href="'/' + ${item.id}" p th:text="${item.description}" /></td>
-            <td><a th:href="'/' + ${item.id}" p th:text="${item.buildYear}" /></td>
-            <td><a th:href="'/' + ${item.id}" p th:text="${item.price} + ' kr'" /></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <div class="row">
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <img class="card-img-top" src="https:/images.ctfassets.net/bi9pvs2ayg6b/4DarfrlijS0a4gwi6SIq0a/015e20d2b4430b42aeb6466a23db8042/shutterstock_1017335230.jpg?w=300" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Are you considering buying an electric bike?</h4>
-                    <p class="card-text">Wondering how an electric bike works? What about the electric bike prize? Here we explain the concepts and technology and give tips on what to think about when you buy an electric bike.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.blocket.se/tips-och-guider/cykelguiden/kopa-elcykel" class="btn btn-primary">Find Out More!</a>
-                </div>
             </div>
         </div>
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <img class="card-img-top div.embbed-responsive" src="https:/images.ctfassets.net/bi9pvs2ayg6b/51iZ5gsRPBIAEMtO49PNLE/743bb78ffd7081d1e307b66b526eaf55/cykling_puff.jpg?w=300" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">What does a bike cost?</h4>
-                    <p class="card-text">What is a good price for a used bike? Whether you are selling or buying, it is good to get an idea of what is a low or high price.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.blocket.se/tips-och-guider/cykelguiden/vad-kostar-en-cykel" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <img class="card-img-top img-float" src="https:/images.ctfassets.net/bi9pvs2ayg6b/53TAvMglUkMEGYceaEiC2e/f1bbb7fc053f3979647429a11b0c1ec8/tryggt_cykelkop.jpg?w=200" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Make a safe bike purchase</h4>
-                    <p class="card-text">Unfortunately, many bicycles are stolen and resold. Help us keep bike thieves away from Blocket and avoid buying a stolen bike with our simple tips..</p>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.blocket.se/tips-och-guider/cykelguiden/tryggt-cykelkop" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
+    </header>
+</main>
+<main layout:fragment="main">
 
-</div>
-<!-- /.container -->
-
-<!-- Footer -->
-<footer class="py-5 bg-dark">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Mini Project-2 Blocket Light 2021</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Build Year</th>
+                <th scope="col">Price</th>
+            </tr>
+            </thead>
+            <tbody id="myTable">
+            <tr th:each="item : ${items}">
+                <td><a th:href="'/' + ${item.id}" p th:text="${item.category.displayValue}"/></td>
+                <td><a th:href="'/' + ${item.id}" p th:text="${item.description}"/></td>
+                <td><a th:href="'/' + ${item.id}" p th:text="${item.buildYear}"/></td>
+                <td><a th:href="'/' + ${item.id}" p th:text="${item.price} + ' kr'"/></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top"
+                         src="https:/images.ctfassets.net/bi9pvs2ayg6b/4DarfrlijS0a4gwi6SIq0a/015e20d2b4430b42aeb6466a23db8042/shutterstock_1017335230.jpg?w=300"
+                         alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Are you considering buying an electric bike?</h4>
+                        <p class="card-text">Wondering how an electric bike works? What about the electric bike prize?
+                            Here we explain the concepts and technology and give tips on what to think about when you
+                            buy an electric bike.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.blocket.se/tips-och-guider/cykelguiden/kopa-elcykel"
+                           class="btn btn-primary">Find Out More!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top div.embbed-responsive"
+                         src="https:/images.ctfassets.net/bi9pvs2ayg6b/51iZ5gsRPBIAEMtO49PNLE/743bb78ffd7081d1e307b66b526eaf55/cykling_puff.jpg?w=300"
+                         alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">What does a bike cost?</h4>
+                        <p class="card-text">What is a good price for a used bike? Whether you are selling or buying, it
+                            is good to get an idea of what is a low or high price.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.blocket.se/tips-och-guider/cykelguiden/vad-kostar-en-cykel"
+                           class="btn btn-primary">Find Out More!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top img-float"
+                         src="https:/images.ctfassets.net/bi9pvs2ayg6b/53TAvMglUkMEGYceaEiC2e/f1bbb7fc053f3979647429a11b0c1ec8/tryggt_cykelkop.jpg?w=200"
+                         alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Make a safe bike purchase</h4>
+                        <p class="card-text">Unfortunately, many bicycles are stolen and resold. Help us keep bike
+                            thieves away from Blocket and avoid buying a stolen bike with our simple tips..</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.blocket.se/tips-och-guider/cykelguiden/tryggt-cykelkop"
+                           class="btn btn-primary">Find Out More!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.container -->
-</footer>
-
-<!-- START Bootstrap-Cookie-Alert -->
-<div class="alert text-center cookiealert" role="alert">
-    <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
-
-    <button type="button" class="btn btn-primary btn-sm acceptcookies">
-        I agree
-    </button>
-</div>
-<!-- END Bootstrap-Cookie-Alert -->
-	
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
-
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+    <main layout:fragment="footer">
+    </main>
+</main>
 </body>
 </html>

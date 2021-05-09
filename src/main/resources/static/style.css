@@ -1,0 +1,10 @@
+body {
+
+  padding-top: 36px;
+}
+
+.error {
+    border-style: solid;
+    border-color: red;
+}
+
